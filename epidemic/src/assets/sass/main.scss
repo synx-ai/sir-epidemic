@@ -10,11 +10,19 @@ html, body, .synx-dark-background {
 .fig-padding {
   padding: 2.2em 1em 1.2em;
   margin-top: 1.2em;
+  margin-bottom: 1.8em;
 }
 
 p.desc {
   line-height: 2.4em;
 
+}
+
+.footer-border-wrap {
+  position: relative;
+  background: linear-gradient(to right, #A36AF6, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0);
+  padding-top: 2px;
+  margin-top: 3em;
 }
 
 .math-fig {
@@ -23,10 +31,16 @@ p.desc {
 
 a {
   color: #8CD1C7;
+  background: -webkit-linear-gradient(#78C1FA, #AAFAF4, #F2F5CA, #F2A7B0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 a:hover {
   color: #7BB8AF;
+  background: -webkit-linear-gradient(#A36AF6, #AAFAF4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @import '~bulma';
@@ -37,8 +51,50 @@ html, body, .synx-dark-background {
 
 a {
   color: #8CD1C7;
+  background: -webkit-linear-gradient(#78C1FA, #AAFAF4, #F2F5CA, #F2A7B0);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 a:hover {
   color: #7BB8AF;
+  background: -webkit-linear-gradient(#A36AF6, #AAFAF4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.legend-s-border-wrap {
+  position: relative;
+  background: linear-gradient(to right, #00A89D, #88FA4E);
+  padding-left: 48px;
+  max-width: 48px;
+  max-height: 32px;
+}
+
+.legend-i-border-wrap {
+  position: relative;
+  background: linear-gradient(to right, #FAE232, #FF644E);
+  padding-left: 48px;
+  max-width: 48px;
+  max-height: 32px;
+}
+
+.legend-r-border-wrap {
+  position: relative;
+  background: linear-gradient(to right, #6047B5, #56C1FF);
+  padding-left: 48px;
+  max-width: 48px;
+  max-height: 32px;
+}
+
+.legend {
+  max-height: 32px;
+  padding-left: .6em;
+  color: #fff;
+  font-size: .9em;
+  background-color: #1E2324;
+}
+
+.legends {
+  margin: 1em 0 0;
 }

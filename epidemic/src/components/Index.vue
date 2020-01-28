@@ -1,17 +1,36 @@
 <template>
   <section class="container">
-    <h3 class="is-size-3 has-text-white has-text-weight-semibold">Epidemic Transmision Dynamics</h3>
+    <h3 class="is-size-3 has-text-white has-text-weight-bold">Epidemic Transmision Dynamics</h3>
     <div class="columns">
       <div class="column">
         <h5 class="is-size-5 has-text-white has-text-weight-light">Stochastic SIR epidemic model for 2019-nCov</h5>
         <div class="synx-gray-background fig-padding">
           <line-chart id="srichart"></line-chart>
+          <div class="columns is-vcentered legends">
+            <div class="column"></div>
+            <div class="column">
+              <div class="legend-s-border-wrap">
+                <div class="legend">Susceptible</div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="legend-i-border-wrap">
+                <div class="legend">Infectious</div>
+              </div>
+            </div>
+            <div class="column">
+              <div class="legend-r-border-wrap">
+                <div class="legend">Recovered</div>
+              </div>
+            </div>
+            <div class="column"></div>
+          </div>
         </div>
       </div>
     </div>
     <div class="columns has-text-white">
       <div class="column">
-        <h6 class="is-size-6 has-text-white has-text-weight-semibold">SRI Model</h6>
+        <h6 class="is-size-6 has-text-white has-text-weight-bold">SRI Model</h6>
         <div class="math-fig">
           <p class="desc">
             <span v-katex="'S(t)'"></span> are those susceptible but not yet infected with the disease.
@@ -34,7 +53,7 @@
           </p>
         </div>
 
-        <h6 class="is-size-6 has-text-white has-text-weight-semibold">Derivates</h6>
+        <h6 class="is-size-6 has-text-white has-text-weight-bold">Derivates</h6>
         <div class="math-fig">
           <p class="desc">
             <span v-katex="'\\frac{dS}{dt} = -\\beta S I'"></span>
@@ -48,15 +67,17 @@
         </div>
       </div>
     </div>
-    <footer class="footer synx-dark-background">
-      <div class="content has-text-centered has-text-light">
-        <p>
-          <strong>Made with 🦠</strong> at <a href="https://synx.ai" target="_blank">Synx</a> by <a href="https://github.com/carlosrivera" target="_blank">Carlos Rivera</a>. The source code is licensed
-          <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>. The website content
-          is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY NC SA 4.0</a>.
-        </p>
-      </div>
-    </footer>
+    <div class="footer-border-wrap">
+      <footer class="footer synx-dark-background">
+        <div class="content has-text-centered has-text-light">
+          <p>
+            Made with 🦠 at <a href="https://synx.ai" target="_blank">Synx</a> by <a href="https://github.com/carlosrivera" target="_blank">Carlos Rivera</a>. The source code is licensed
+            <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>. The website content
+            is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY NC SA 4.0</a>.
+          </p>
+        </div>
+      </footer>
+    </div>
   </section>
 </template>
 

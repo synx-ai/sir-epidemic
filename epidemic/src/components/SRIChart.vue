@@ -46,7 +46,7 @@
             }]
           },
           legend: {
-            display: true,
+            display: false,
             position: 'bottom',
             labels: {
               padding: 20,
