@@ -21,4 +21,24 @@ p.desc {
   margin: 1em 2em;
 }
 
+a {
+  color: #8CD1C7;
+}
+
+a:hover {
+  color: #7BB8AF;
+}
+
 @import '~bulma';
+
+html, body, .synx-dark-background {
+  background-color: #171B1C;
+}
+
+a {
+  color: #8CD1C7;
+}
+
+a:hover {
+  color: #7BB8AF;
+}
