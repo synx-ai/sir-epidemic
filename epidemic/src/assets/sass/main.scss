@@ -1,0 +1,24 @@
+
+html, body, .synx-dark-background {
+  background-color: #171B1C;
+}
+
+.synx-gray-background {
+  background-color: #1E2324;
+}
+
+.fig-padding {
+  padding: 2.2em 1em 1.2em;
+  margin-top: 1.2em;
+}
+
+p.desc {
+  line-height: 2.4em;
+
+}
+
+.math-fig {
+  margin: 1em 2em;
+}
+
+@import '~bulma';
