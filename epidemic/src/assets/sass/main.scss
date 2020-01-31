@@ -31,14 +31,14 @@ p.desc {
 
 a {
   color: #8CD1C7;
-  background: -webkit-linear-gradient(#78C1FA, #AAFAF4, #F2F5CA, #F2A7B0);
+  background: linear-gradient(to right, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 a:hover {
   color: #7BB8AF;
-  background: -webkit-linear-gradient(#A36AF6, #AAFAF4);
+  background: linear-gradient(to right, #A36AF6, #AAFAF4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -51,14 +51,14 @@ html, body, .synx-dark-background {
 
 a {
   color: #8CD1C7;
-  background: -webkit-linear-gradient(#78C1FA, #AAFAF4, #F2F5CA, #F2A7B0);
+  background: linear-gradient(#78C1FA, #AAFAF4, #F2F5CA);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 a:hover {
   color: #7BB8AF;
-  background: -webkit-linear-gradient(#A36AF6, #AAFAF4);
+  background: linear-gradient(#A36AF6, #AAFAF4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -73,7 +73,7 @@ a:hover {
 
 .legend-i-border-wrap {
   position: relative;
-  background: linear-gradient(to right, #FAE232, #FF644E);
+  background: linear-gradient(to right, #FF644E, #FAE232);
   padding-left: 48px;
   max-width: 48px;
   max-height: 32px;
@@ -97,4 +97,269 @@ a:hover {
 
 .legends {
   margin: 1em 0 0;
+}
+
+
+
+
+
+
+$primary: #78C1FA;
+$primary-accent: #AAFAF4;
+$secondary: #F2F5CA;
+$secondary-accent: #F2A7B0;
+
+$title-grey: #7F00FF;
+$placeholder: #7F00FF;
+/* ==========================================================================
+1. Shadow variables
+========================================================================== */
+
+//Base shadow
+$base-shadow: rgba(0, 0, 0, 0.12);
+
+//Primary box shadow
+$primary-shadow-from: rgba(127, 0, 255, 0.42);
+$primary-shadow-to: rgba(63, 0, 252, 0.2);
+$primary-box-shadow:  0 14px 26px -12px $primary-shadow-from, 0 4px 23px 0px $base-shadow, 0 8px 10px -5px $primary-shadow-to !important;
+
+//Secondary box shadow
+$secondary-shadow-from: rgba(0, 255, 153, 0.42);
+$secondary-shadow-to: rgba(51, 204, 255, 0.2);
+$secondary-box-shadow:  0 14px 26px -12px $secondary-shadow-from, 0 4px 23px 0px $base-shadow, 0 8px 10px -5px $secondary-shadow-to !important;
+
+
+.primary-gradient {
+    background: $primary;
+    background: -webkit-linear-gradient(to right, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0) !important;
+    background: linear-gradient(to right, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0) !important;
+}
+
+.secondary-gradient {
+    background: $secondary;
+    background: -webkit-linear-gradient(to right, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0) !important;
+    background: linear-gradient(to right, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0) !important;
+}
+
+/* ==========================================================================
+2. Gradient mixins
+========================================================================== */
+
+@mixin theme-hero-gradient(){
+    background-image: -webkit-linear-gradient(to bottom, #5202d8 0%, #3c019e 100%);
+    background-image: linear-gradient(to bottom, #5202d8 0%, #3c019e 100%);
+}
+
+@mixin primary-gradient-top(){
+    background: $primary;
+    background: -webkit-linear-gradient(to top, $primary, $primary-accent) !important;
+    background: linear-gradient(to top, $primary, $primary-accent) !important;
+}
+
+@mixin primary-gradient-left(){
+    background: $primary;
+    background: -webkit-linear-gradient(to left, #A36AF6, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0) !important;
+    background: linear-gradient(to left, #A36AF6, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0) !important;
+}
+
+@mixin primary-gradient-right(){
+    background: $primary;
+    background: -webkit-linear-gradient(to right, #A36AF6, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0) !important;
+    background: linear-gradient(to right, #A36AF6, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0) !important;
+}
+
+@mixin secondary-gradient-top(){
+    background: $secondary;
+    background: -webkit-linear-gradient(to top, $secondary, $secondary-accent) !important;
+    background: linear-gradient(to top, $secondary, $secondary-accent) !important;
+}
+
+@mixin secondary-gradient-right(){
+    background: $secondary;
+    background: -webkit-linear-gradient(to right, $secondary, $secondary-accent) !important;
+    background: linear-gradient(to right, $secondary, $secondary-accent) !important;
+}
+
+@mixin secondary-gradient-left(){
+    background: $secondary;
+    background: -webkit-linear-gradient(to left, $secondary, $secondary-accent) !important;
+    background: linear-gradient(to left, $secondary, $secondary-accent) !important;
+}
+
+//Material control
+.control-material {
+    position:relative;
+    margin-bottom:3em;
+    input, textarea {
+        border-radius: 0 !important;
+        border-color: rgba(0,0,0,0.05);
+        resize: none;
+    }
+    //primary colors
+    &.is-primary {
+        input.material-input:focus ~ label, input:valid ~ label, textarea:focus ~ label {
+            color: $primary;
+        }
+        input, textarea {
+            color: $white;
+            border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+        }
+        .bar:before {
+            @include primary-gradient-right();
+        }
+        .bar:after {
+            @include primary-gradient-left();
+        }
+        &.has-icon input:focus ~ i {
+            color: $primary !important;
+        }
+    }
+    //secondary colors
+    &.is-secondary {
+        input.material-input:focus ~ label, input:valid ~ label, textarea:focus ~ label {
+            color: $secondary;
+        }
+        input, textarea {
+            color: $white;
+            border-bottom: 1px solid rgba(255,255,255,0.2) !important;
+        }
+        .bar:before {
+            @include secondary-gradient-right();
+        }
+        .bar:after {
+            @include secondary-gradient-left();
+        }
+        &.has-icon input:focus ~ i {
+            color: $secondary !important;
+        }
+    }
+    //Common material styles
+    input.material-input, textarea {
+        width: 100% !important;
+        font-size:18px;
+        padding:0.625em  0.625em 0.625em 0.3125em;
+        display:block;
+        width:18.75em;
+        border:none;
+        border-bottom:1px solid $title-grey;
+        background-color: transparent !important;
+        &:focus {
+            outline:none;
+        }
+    }
+    //Floating label
+    label {
+        font-family:'Arial';
+        color: $placeholder;
+        font-size:15px;
+        font-weight:normal;
+        position:absolute;
+        pointer-events:none;
+        left:0.3125em;
+        top:0.625em;
+        transition:0.2s ease all;
+        -moz-transition:0.2s ease all;
+        -webkit-transition:0.2s ease all;
+    }
+    input.material-input:focus ~ label, input:valid ~ label, textarea:focus ~ label		{
+        top:-20px;
+        left: -2px;
+        font-size:12px;
+    }
+    //bottom bar
+    .bar 	{
+        position:relative;
+        display:block;
+    }
+
+    .bar:before, .bar:after 	{
+        content:'';
+        height:2px;
+        width:0;
+        bottom:0px;
+        position:absolute;
+
+        transition:0.2s ease all;
+        -moz-transition:0.2s ease all;
+        -webkit-transition:0.2s ease all;
+    }
+    .bar:before {
+        left:50%;
+    }
+    .bar:after {
+        right:50%;
+    }
+    input.material-input:focus ~ .bar:before, input.material-input:focus ~ .bar:after, textarea:focus ~ .bar:before, textarea:focus ~ .bar:after {
+        width:50%;
+    }
+}
+
+//Input and textareas text colors
+.control-material textarea {
+    color: $white;
+}
+
+
+/* ==========================================================================
+1. Contact form
+========================================================================== */
+
+//Wrapper
+.contact-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    //Icon
+    .contact-icon {
+        position: relative;
+        height: 54px;
+        width: 54px;
+        background: $secondary;
+        background: -webkit-linear-gradient(to right, $secondary, $secondary-accent) !important;
+        background: linear-gradient(to right, $secondary, $secondary-accent) !important;
+        border-radius: 50%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        cursor: pointer;
+        //Inner image
+        img {
+            position: absolute;
+            display: block;
+            width: 24px;
+            height: 24px;
+            //left: 2px;
+            z-index: 3;
+            //Telegram icon position
+            &.is-telegram {
+                top: calc(50% - 12px);
+                left: calc(50% - 14px);
+            }
+        }
+        //Pseudo pulsating element
+        &:after {
+            content: '';
+            position: absolute;
+            top: calc(50% - 12px);
+            left: calc(50% - 12px);
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: $secondary;
+            background: -webkit-linear-gradient(to right, $secondary, $secondary-accent) !important;
+            background: linear-gradient(to right, $secondary, $secondary-accent) !important;
+            animation: pulse 1.6s infinite;
+            animation-duration: 2s;
+            transform-origin: center center ;
+            z-index: 0;
+        }
+
+    }
+}
+
+//Contact form spacing
+.contact-form {
+    margin-top: 40px;
 }

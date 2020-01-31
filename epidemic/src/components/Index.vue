@@ -5,7 +5,12 @@
       <div class="column">
         <h5 class="is-size-5 has-text-white has-text-weight-light">Stochastic SIR epidemic model for 2019-nCov</h5>
         <div class="synx-gray-background fig-padding">
-          <line-chart id="srichart"></line-chart>
+          <line-chart id="srichart"
+                  v-bind:r0="r0"
+                  v-bind:r0_best="r0_best"
+                  v-bind:r0_worst="r0_worst"
+                  v-bind:population="population">
+          </line-chart>
           <div class="columns is-vcentered legends">
             <div class="column"></div>
             <div class="column">
@@ -28,6 +33,51 @@
         </div>
       </div>
     </div>
+    <div class="columns">
+      <div class="column is-one-quarter">
+        <form class="login-form">
+          <div class="control-material is-primary">
+            <input class="material-input has-text-centered" type="text" required="" v-model="r0">
+            <span class="material-highlight"></span>
+            <span class="bar"></span>
+            <label>R0 (mean)</label>
+          </div>
+        </form>
+      </div>
+
+      <div class="column is-one-quarter">
+        <form class="login-form">
+          <div class="control-material is-primary">
+            <input class="material-input has-text-centered" type="text" required="" v-model="r0_best">
+            <span class="material-highlight"></span>
+            <span class="bar"></span>
+            <label>R0 (best)</label>
+          </div>
+        </form>
+      </div>
+
+      <div class="column is-one-quarter">
+        <form class="login-form">
+          <div class="control-material is-primary">
+            <input class="material-input has-text-centered" type="text" required="" v-model="r0_worst">
+            <span class="material-highlight"></span>
+            <span class="bar"></span>
+            <label>R0 (worst)</label>
+          </div>
+        </form>
+      </div>
+
+      <div class="column is-one-quarter">
+        <form class="login-form">
+          <div class="control-material is-primary">
+            <input class="material-input has-text-centered" type="text" required="" v-model="population">
+            <span class="material-highlight"></span>
+            <span class="bar"></span>
+            <label>Population</label>
+          </div>
+        </form>
+      </div>
+    </div>
     <div class="columns has-text-white">
       <div class="column">
         <h6 class="is-size-6 has-text-white has-text-weight-bold">SRI Model</h6>
@@ -44,12 +94,12 @@
         </div>
 
         <p class="">
-        Basic reproduction number taken from <a href="https://www.biorxiv.org/content/10.1101/2020.01.23.916395v1" target="_blank">Preliminary estimation of the basic reproduction number of novel coronavirus (2019-nCoV) in China, from 2019 to 2020: A data-driven analysis in the early phase of the outbreak &rarr;</a>
+        Default basic reproduction number taken from <a href="https://www.biorxiv.org/content/10.1101/2020.01.23.916395v1" target="_blank">Preliminary estimation of the basic reproduction number of novel coronavirus (2019-nCoV) in China, from 2019 to 2020: A data-driven analysis in the early phase of the outbreak &rarr;</a>
         </p>
 
         <div class="math-fig">
           <p class="desc">
-            <span v-katex="'R_0 = \\frac{\\beta}{\\gamma} = 3.3'"></span>, <span v-katex="'(95\\% CI:2.73 - 5.47)'"></span>.
+            <span v-katex="'R_0 = \\frac{\\beta}{\\gamma} = 2.2'"></span>, <span v-katex="'(95\\% CI:1.4 - 3.9)'"></span>.
           </p>
         </div>
 
@@ -88,6 +138,15 @@
     name: 'VueChartJS',
     components: {
       LineChart
+    },
+    data () {
+      return {
+        //Chart.js options that controls the appearance of the chart
+        r0: "2.2",
+        r0_best: "1.4",
+        r0_worst: "3.9",
+        population: "11080000"
+      }
     }
   }
 </script>
