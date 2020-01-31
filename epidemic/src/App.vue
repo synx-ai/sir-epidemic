@@ -30,6 +30,10 @@ a:hover {
   -webkit-text-fill-color: transparent;
 }
 
+.footer {
+  padding: 3rem 1.5rem 3rem;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

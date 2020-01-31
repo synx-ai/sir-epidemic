@@ -4,12 +4,14 @@
     <div class="columns">
       <div class="column">
         <h5 class="is-size-5 has-text-white has-text-weight-light">Stochastic SIR epidemic model for 2019-nCov</h5>
+        <div class="dark-border-wrap">
         <div class="synx-gray-background fig-padding">
           <line-chart id="srichart"
                   v-bind:r0="r0"
                   v-bind:r0_best="r0_best"
                   v-bind:r0_worst="r0_worst"
-                  v-bind:population="population">
+                  v-bind:population="population"
+                  v-bind:days="days">
           </line-chart>
           <div class="columns is-vcentered legends">
             <div class="column"></div>
@@ -31,10 +33,11 @@
             <div class="column"></div>
           </div>
         </div>
+        </div>
       </div>
     </div>
     <div class="columns">
-      <div class="column is-one-quarter">
+      <div class="column is-one-fifth">
         <form class="login-form">
           <div class="control-material is-primary">
             <input class="material-input has-text-centered" type="text" required="" v-model="r0">
@@ -45,7 +48,7 @@
         </form>
       </div>
 
-      <div class="column is-one-quarter">
+      <div class="column is-one-fifth">
         <form class="login-form">
           <div class="control-material is-primary">
             <input class="material-input has-text-centered" type="text" required="" v-model="r0_best">
@@ -56,7 +59,7 @@
         </form>
       </div>
 
-      <div class="column is-one-quarter">
+      <div class="column is-one-fifth">
         <form class="login-form">
           <div class="control-material is-primary">
             <input class="material-input has-text-centered" type="text" required="" v-model="r0_worst">
@@ -67,13 +70,24 @@
         </form>
       </div>
 
-      <div class="column is-one-quarter">
+      <div class="column is-one-fifth">
         <form class="login-form">
           <div class="control-material is-primary">
             <input class="material-input has-text-centered" type="text" required="" v-model="population">
             <span class="material-highlight"></span>
             <span class="bar"></span>
             <label>Population</label>
+          </div>
+        </form>
+      </div>
+
+      <div class="column is-one-fifth">
+        <form class="login-form">
+          <div class="control-material is-primary">
+            <input class="material-input has-text-centered" type="text" required="" v-model="days" oninput="javascript: if (this.value > 365) this.value = 365; if (this.value < 1) this.value = 1;">
+            <span class="material-highlight"></span>
+            <span class="bar"></span>
+            <label>Days (1 - 365)</label>
           </div>
         </form>
       </div>
@@ -125,6 +139,7 @@
             <a href="http://opensource.org/licenses/mit-license.php" target="_blank">MIT</a>. The website content
             is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY NC SA 4.0</a>.
           </p>
+          <img src="static/synx-logo.svg" class="footer-logo">
         </div>
       </footer>
     </div>
@@ -145,7 +160,8 @@
         r0: "2.2",
         r0_best: "1.4",
         r0_worst: "3.9",
-        population: "11080000"
+        population: "11080000",
+        days: "99"
       }
     }
   }

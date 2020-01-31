@@ -30,7 +30,7 @@
 
       let t = [], S = [], I = [], R = [];
 
-      for (var i = 0; i <= n; i += n/99) {
+      for (var i = 0; i <= n; i += n/Number(context.days)) {
         solution.step();
         t.push(solution.t);
         S.push(solution.y[0]);
@@ -38,14 +38,13 @@
         R.push(solution.y[2]);
       }
 
-      console.log(n);
       //console.log(S, R, I);
 
       return {
         days: t,
-        susceptibles: S,
-        infectious: I,
-        recovered: R
+        susceptibles: S.map(function(x) { return (x * 100).toFixed(2); }),
+        infectious: I.map(function(x) { return (x * 100).toFixed(2); }),
+        recovered: R.map(function(x) { return (x * 100).toFixed(2); })
       }
     }
 
@@ -110,8 +109,8 @@
           //...context.chartconfig,
           label: 'Susceptible',
           fill: false,
-          pointBackgroundColor: 'transparent',
-          hoverBorderWidth: 5,
+          pointBackgroundColor: context.susceptibleGradient,
+          pointHitRadius: 8,
           borderWidth: 3,
           data: average.susceptibles,
           backgroundColor: context.susceptibleGradient,
@@ -138,7 +137,8 @@
           //...context.chartconfig,
           label: 'Infectious',
           fill: false,
-          pointBackgroundColor: 'transparent',
+          pointBackgroundColor: context.infectiousGradient,
+          pointHitRadius: 8,
           borderWidth: 3,
           data: average.infectious,
           backgroundColor: context.infectiousGradient,
@@ -165,7 +165,8 @@
           //...context.chartconfig,
           label: 'Recovered',
           fill: false,
-          pointBackgroundColor: 'transparent',
+          pointBackgroundColor: context.recoveredGradient,
+          pointHitRadius: 8,
           borderWidth: 3,
           data: average.recovered,
           backgroundColor: context.recoveredGradient,
@@ -213,6 +214,10 @@
       population: {
         type: String,
         default: () => "11080000"
+      },
+      days: {
+        type: String,
+        default: () => "100"
       }
     },
     data () {
@@ -233,11 +238,22 @@
                 display: true,
                 color: '#2d2d2d',
                 zeroLineColor: '#2d2d2d'
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Population %',
+                fontFamily: 'Avenir, Helvetica, Arial, sans-serif'
               }
             }],
             xAxes: [ {
               gridLines: {
                 display: false
+              },
+              scaleLabel: {
+                display: true,
+                labelString: 'Days transcurred since outbreak',
+                fontFamily: 'Avenir, Helvetica, Arial, sans-serif',
+                padding: 10
               }
             }]
           },
@@ -269,6 +285,9 @@
         renderChart(this);
       },
       population () {
+        renderChart(this);
+      },
+      days () {
         renderChart(this);
       }
     },
