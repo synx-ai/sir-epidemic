@@ -47,6 +47,10 @@ a:hover {
   background: linear-gradient(to right, #A36AF6, #AAFAF4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
 }
 
 @import '~bulma';
@@ -122,8 +126,8 @@ $primary-accent: #AAFAF4;
 $secondary: #F2F5CA;
 $secondary-accent: #F2A7B0;
 
-$title-grey: #7F00FF;
-$placeholder: #7F00FF;
+$title-grey: #888;
+$placeholder: #888;
 /* ==========================================================================
 1. Shadow variables
 ========================================================================== */
@@ -211,7 +215,7 @@ $secondary-box-shadow:  0 14px 26px -12px $secondary-shadow-from, 0 4px 23px 0px
     //primary colors
     &.is-primary {
         input.material-input:focus ~ label, input:valid ~ label, textarea:focus ~ label {
-            color: $primary;
+            color: $placeholder;
         }
         input, textarea {
             color: $white;
@@ -297,13 +301,13 @@ $secondary-box-shadow:  0 14px 26px -12px $secondary-shadow-from, 0 4px 23px 0px
         -webkit-transition:0.2s ease all;
     }
     .bar:before {
-        left:50%;
+        left:0%;
     }
     .bar:after {
         right:50%;
     }
-    input.material-input:focus ~ .bar:before, input.material-input:focus ~ .bar:after, textarea:focus ~ .bar:before, textarea:focus ~ .bar:after {
-        width:50%;
+    input.material-input:focus ~ .bar:before, textarea:focus ~ .bar:before{
+        width:100%;
     }
 }
 

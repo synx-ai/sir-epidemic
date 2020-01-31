@@ -28,6 +28,10 @@ a:hover {
   background: linear-gradient(#A36AF6, #AAFAF4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  transition:0.2s ease all;
+  -moz-transition:0.2s ease all;
+  -webkit-transition:0.2s ease all;
 }
 
 .footer {
