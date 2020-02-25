@@ -9,11 +9,12 @@
         let S = y[0];
         let I = y[1];
         let R = y[2];
+        let n = Number(context.population);
         //let beta = 0.35;
         //let gamma = 0.1;
 
         let dS_dt = -beta*S*I;
-        let dI_dt = beta*S*I - gamma*I;
+        let dI_dt = (beta*S*I) - gamma*I;
         let dR_dt = gamma*I;
 
         dydt[0] = dS_dt;

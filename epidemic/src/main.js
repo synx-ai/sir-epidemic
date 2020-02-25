@@ -6,6 +6,14 @@ import router from './router'
 import VueKatex from 'vue-katex'
 import 'katex/dist/katex.min.css';
 
+import VueGtag from 'vue-gtag';
+
+Vue.use(VueGtag, {
+  config: {
+    id: 'UA-106564167-1'
+  }
+}, router);
+
 Vue.use(VueKatex)
 
 require('./assets/sass/main.scss')
