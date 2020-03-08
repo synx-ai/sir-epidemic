@@ -38,10 +38,4 @@ a:hover {
   padding: 3rem 1.5rem 3rem;
 }
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;
-}
 </style>

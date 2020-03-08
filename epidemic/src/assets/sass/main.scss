@@ -1,4 +1,3 @@
-
 html, body, .synx-dark-background {
   background-color: #171B1C;
 }
@@ -55,6 +54,31 @@ a:hover {
 
 @import '~bulma';
 
+@font-face {
+  font-family: "Neufile Grotesk";
+  font-weight: 400;
+  src: url("../fonts/NeufileGrotesk-Regular.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Neufile Grotesk";
+  font-weight: 700;
+  src: url("../fonts/NeufileGrotesk-Bold.ttf")
+    format("truetype");
+}
+
+#app {
+  font-family: "Neufile Grotesk", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@include tablet {
+  #app {
+    margin-top: 60px;
+  }
+}
 html, body, .synx-dark-background {
   background-color: #171B1C;
 }
