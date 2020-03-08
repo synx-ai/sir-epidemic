@@ -26,8 +26,8 @@ p.desc {
 .footer-border-wrap {
   position: relative;
   background: linear-gradient(to right, #A36AF6, #78C1FA, #AAFAF4, #F2F5CA, #F2A7B0);
-  padding-top: 2px;
-  margin-top: 3em;
+  padding-bottom: 3px;
+  margin-top: 1em;
 }
 
 .math-fig {
@@ -69,7 +69,7 @@ a:hover {
 }
 
 #app {
-  font-family: "Neufile Grotesk", Helvetica, Arial, sans-serif;
+  font-family: "Neufile Grotesk", Helvetica, Arial, sans-serif !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -79,6 +79,7 @@ a:hover {
     margin-top: 60px;
   }
 }
+
 html, body, .synx-dark-background {
   background-color: #171B1C;
 }
@@ -136,6 +137,7 @@ a:hover {
 
 .footer {
   padding: 3rem 1.5rem 3rem;
+  background-color: #000;
 }
 
 .footer-logo {
@@ -283,7 +285,7 @@ $secondary-box-shadow:  0 14px 26px -12px $secondary-shadow-from, 0 4px 23px 0px
         width:18.75em;
         border:none;
         border-bottom:1px solid $title-grey;
-        background-color: transparent !important;
+        background-color: #121515 !important;
         &:focus {
             outline:none;
         }
