@@ -198,6 +198,74 @@
                 <span v-katex="'\\frac{dR}{dt} = \\gamma I'"></span>
               </p>
             </div>
+
+            <h6 class="is-size-6 has-text-white has-text-weight-bold">Iterative 4th Order Runge-Kutta fomulas</h6>
+            <div class="math-fig">
+              <p class="desc">
+                <span v-katex="'S_{n + 1} = S_n + \\frac{\\Delta t}{6}(k_1^S + 2k_2^S + 2k_3^S + k_4^S)'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_1^S = f(t_n, S_n, I_n) = -\\frac{\\beta S_nI_n}{N}'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_2^S = f(t_n + \\frac{\\Delta t}{2}, S_n + \\frac{k_1^S\\Delta t}{2}, I_n + \\frac{k_1^I\\Delta t}{2}) = -\\frac{\\beta}{N}(S_n + \\frac{k_1^S\\Delta t}{2})(I_n + \\frac{k_1^I\\Delta t}{2})'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_3^S = f(t_n + \\frac{\\Delta t}{2}, S_n + \\frac{k_2^S\\Delta t}{2}, I_n + \\frac{k_2^I\\Delta t}{2}) = -\\frac{\\beta}{N}(S_n + \\frac{k_2^S\\Delta t}{2})(I_n + \\frac{k_2^I\\Delta t}{2})'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_4^S = f(t_n + \\Delta t, S_n + k_3^S\\Delta t, I_n + k_3^I\\Delta t) = -\\frac{\\beta}{N}(S_n + k_3^S\\Delta t)(I_n + k_3^I\\Delta t)'"></span>
+              </p>
+            </div>
+
+            <div class="math-fig">
+              <p class="desc">
+                <span v-katex="'I_{n + 1} = I_n + \\frac{\\Delta t}{6}(k_1^I + 2k_2^I + 2k_3^I + k_4^I)'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_1^I = f(t_n, S_n, I_n) = \\frac{\\beta S_nI_n}{N} - \\gamma I_n'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_2^I = f(t_n + \\frac{\\Delta t}{2}, S_n + \\frac{k_1^S\\Delta t}{2}, I_n + \\frac{k_1^I\\Delta t}{2}) = \\frac{\\beta}{N}(S_n + \\frac{k_1^S\\Delta t}{2})(I_n + \\frac{k_1^I\\Delta t}{2}) - \\gamma (I_n + \\frac{k_1^I\\Delta t}{2})'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_3^I = f(t_n + \\frac{\\Delta t}{2}, S_n + \\frac{k_2^S\\Delta t}{2}, I_n + \\frac{k_2^I\\Delta t}{2}) = \\frac{\\beta}{N}(S_n + \\frac{k_2^S\\Delta t}{2})(I_n + \\frac{k_2^I\\Delta t}{2}) - \\gamma (I_n + \\frac{k_2^I\\Delta t}{2}) '"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_4^I = f(t_n + \\Delta t, S_n + k_3^S\\Delta t, I_n + k_3^I\\Delta t) = \\frac{\\beta}{N}(S_n + k_3^S\\Delta t)(I_n + k_3^I\\Delta t) - \\gamma (I_n + k_3^I\\Delta t)'"></span>
+              </p>
+            </div>
+
+            <div class="math-fig">
+              <p class="desc">
+                <span v-katex="'R_{n + 1} = R_n + \\frac{\\Delta t}{6}(k_1^R + 2k_2^R + 2k_3^R + k_4^R)'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_1^R = f(t_n, I_n) = \\gamma I_n'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_2^R = f(t_n + \\frac{\\Delta t}{2}, I_n + \\frac{k_1^I\\Delta t}{2}) = \\gamma (I_n + \\frac{k_1^I\\Delta t}{2})'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_3^R = f(t_n + \\frac{\\Delta t}{2}, I_n + \\frac{k_2^I\\Delta t}{2}) = \\gamma (I_n + \\frac{k_2^I\\Delta t}{2})'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'k_4^R = f(t_n + \\Delta t, I_n + k_3^I\\Delta t) = \\gamma (I_n + k_3^I\\Delta t)'"></span>
+              </p>
+            </div>
+
+            <h6 class="is-size-6 has-text-white has-text-weight-bold">Initial parameters</h6>
+            <div class="math-fig">
+              <p class="desc">
+                <span v-katex="'S(0) = \\frac{N - a}{N} '"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'I(0) = \\frac{I}{N}'"></span>
+              </p>
+              <p class="desc">
+                <span v-katex="'R(0) = 1-(\\frac{c}{100})'"></span>
+              </p>
+            </div>
           </div>
         </div>
       </div>
