@@ -122,6 +122,14 @@ a:hover {
   max-height: 32px;
 }
 
+.legend-c-border-wrap {
+  position: relative;
+  background: linear-gradient(to right, #B0B0B0, #FFFFFF);
+  padding-left: 48px;
+  max-width: 48px;
+  max-height: 32px;
+}
+
 .legend {
   max-height: 32px;
   padding-left: .6em;

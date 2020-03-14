@@ -1,5 +1,4 @@
 <script>
-  //Importing Line class from the vue-chartjs wrapper
   var rk4 = require('ode-rk4')
   import { Line } from 'vue-chartjs'
 
@@ -10,8 +9,6 @@
         let I = y[1];
         let R = y[2];
         let n = Number(context.population);
-        //let beta = 0.35;
-        //let gamma = 0.1;
 
         let dS_dt = -beta*S*I;
         let dI_dt = (beta*S*I) - gamma*I;
@@ -22,36 +19,41 @@
         dydt[2] = dR_dt;
       }
 
-      let SIR0 = [0.999, 0.001, 0.0];
+      let SIR0 = [
+        (context.population - (context.currentInfected + context.currentDeaths + context.currentRecovered)) / context.population,
+        context.currentInfected / context.population,
+        (context.currentDeaths + context.currentRecovered) / context.population
+      ];
+
       let n = Number(context.population);
       let t0 = 0;
       let dt = 1;
 
       let solution = rk4(SIR0, SIR_model, t0, dt);
 
-      let t = [], S = [], I = [], R = [];
+      let t = [], S = [], I = [], R = [], C = [];
 
-      for (var i = 0; i <= n; i += n/Number(context.days)) {
+      for (var i = 0; i <= Number(context.days); i += 1) {
         solution.step();
         t.push(solution.t);
         S.push(solution.y[0]);
         I.push(solution.y[1]);
         R.push(solution.y[2]);
+        C.push(context.capacity * (context.population / 1000));
       }
-
-      //console.log(S, R, I);
 
       return {
         days: t,
-        susceptibles: S.map(function(x) { return (x * 100).toFixed(2); }),
-        infectious: I.map(function(x) { return (x * 100).toFixed(2); }),
-        recovered: R.map(function(x) { return (x * 100).toFixed(2); })
+        susceptibles: S.map(function(x) { return (x * context.population).toFixed(0); }),
+        infectious: I.map(function(x) { return (x * context.population).toFixed(0); }),
+        recovered: R.map(function(x) { return (x * context.population).toFixed(0); }),
+        capacity: C
       }
     }
 
-    let average = fit(Number(context.r0) / 10, 0.1);
-    let worst = fit(Number(context.r0_worst) / 10, 0.1);
-    let best = fit(Number(context.r0_best) / 10, 0.1);
+    let average = fit(Number(context.r0) , 1. - (context.deathRate / 100));
+    let worst = fit(Number(context.r0_worst) , 1. - (context.deathRate / 100));
+    let best = fit(Number(context.r0_best) , 1. - (context.deathRate / 100));
 
     context.recoveredGradient = context.$refs.canvas
       .getContext("2d")
@@ -98,6 +100,16 @@
     context.renderChart({
       labels: average.days,
       datasets: [{
+          //...context.chartconfig,
+          label: 'Capacity',
+          fill: false,
+          pointBackgroundColor: 'transparent',
+          borderWidth: 2,
+          borderDash: [10, 10],
+          data: worst.capacity,
+          backgroundColor: '#ffffffff',
+          borderColor: '#ffffffff'
+        }, {
           //...context.chartconfig,
           label: 'IC',
           fill: '+1',
@@ -214,11 +226,31 @@
       },
       population: {
         type: String,
-        default: () => "11080000"
+        default: () => "129200000"
       },
       days: {
         type: String,
         default: () => "100"
+      },
+      currentInfected: {
+        type: String,
+        default: () => "16"
+      },
+      currentDeaths: {
+        type: String,
+        default: () => "0"
+      },
+      currentRecovered: {
+        type: String,
+        default: () => "1"
+      },
+      deathRate: {
+        type: String,
+        default: () => "3.4"
+      },
+      capacity: {
+        type: String,
+        default: () => "1"
       }
     },
     data () {
@@ -289,6 +321,21 @@
         renderChart(this);
       },
       days () {
+        renderChart(this);
+      },
+      currentDeaths () {
+        renderChart(this);
+      },
+      currentInfected () {
+        renderChart(this);
+      },
+      currentRecovered () {
+        renderChart(this);
+      },
+      deathRate () {
+        renderChart(this);
+      },
+      capacity () {
         renderChart(this);
       }
     },

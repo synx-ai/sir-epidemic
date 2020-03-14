@@ -13,7 +13,12 @@
                       v-bind:r0_best="r0_best"
                       v-bind:r0_worst="r0_worst"
                       v-bind:population="population"
-                      v-bind:days="days">
+                      v-bind:days="days"
+                      v-bind:currentDeaths="currentDeaths"
+                      v-bind:currentInfected="currentInfected"
+                      v-bind:currentRecovered="currentRecovered"
+                      v-bind:deathRate="deathRate"
+                      v-bind:capacity="capacity">
               </line-chart>
               <div class="columns is-vcentered legends">
                 <div class="column"></div>
@@ -30,6 +35,11 @@
                 <div class="column">
                   <div class="legend-r-border-wrap">
                     <div class="legend">Recovered</div>
+                  </div>
+                </div>
+                <div class="column">
+                  <div class="legend-c-border-wrap">
+                    <div class="legend">Capacity</div>
                   </div>
                 </div>
                 <div class="column"></div>
@@ -93,6 +103,63 @@
               </div>
             </form>
           </div>
+        </div>
+        <div class="columns">
+          <div class="column is-one-fifth">
+            <form class="login-form">
+              <div class="control-material is-primary">
+                <input class="material-input has-text-centered" type="number" required="" v-model="currentInfected">
+                <span class="material-highlight"></span>
+                <span class="bar"></span>
+                <label>Current Infected</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="column is-one-fifth">
+            <form class="login-form">
+              <div class="control-material is-primary">
+                <input class="material-input has-text-centered" type="number" required="" v-model="currentDeaths">
+                <span class="material-highlight"></span>
+                <span class="bar"></span>
+                <label>Current Deaths</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="column is-one-fifth">
+            <form class="login-form">
+              <div class="control-material is-primary">
+                <input class="material-input has-text-centered" type="number" required="" v-model="currentRecovered">
+                <span class="material-highlight"></span>
+                <span class="bar"></span>
+                <label>Current Recovered</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="column is-one-fifth">
+            <form class="login-form">
+              <div class="control-material is-primary">
+                <input class="material-input has-text-centered" type="number" required="" v-model="deathRate">
+                <span class="material-highlight"></span>
+                <span class="bar"></span>
+                <label>Death Rate</label>
+              </div>
+            </form>
+          </div>
+
+          <div class="column is-one-fifth">
+            <form class="login-form">
+              <div class="control-material is-primary">
+                <input class="material-input has-text-centered" type="number" required="" v-model="capacity">
+                <span class="material-highlight"></span>
+                <span class="bar"></span>
+                <label>Beds per 1000 habitants</label>
+              </div>
+            </form>
+          </div>
+
         </div>
         <div class="columns has-text-white">
           <div class="column">
@@ -164,8 +231,13 @@
         r0: "2.2",
         r0_best: "1.4",
         r0_worst: "3.9",
-        population: "11080000",
-        days: "99"
+        population: "129200000",
+        days: "99",
+        currentInfected: "16",
+        currentDeaths: "0",
+        currentRecovered: "1",
+        deathRate: "3.4",
+        capacity: "1",
       }
     }
   }
