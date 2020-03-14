@@ -5,7 +5,7 @@
         <h3 class="is-size-3 has-text-white has-text-weight-bold">Epidemic Transmision Dynamics</h3>
         <div class="columns">
           <div class="column">
-            <h5 class="is-size-5 has-text-white has-text-weight-light">Stochastic SIR epidemic model for 2019-nCov</h5>
+            <h5 class="is-size-5 has-text-white has-text-weight-light">Stochastic SIR epidemic model for COVID19</h5>
             <div class="dark-border-wrap">
             <div class="synx-gray-background fig-padding">
               <line-chart id="srichart"
